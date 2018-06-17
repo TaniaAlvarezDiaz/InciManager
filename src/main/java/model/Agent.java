@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -8,11 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import model.Incidence;
+
 @Entity
-@Table(name = "User")
-public class User implements Serializable {
+@Table(name = "Agent")
+public class Agent implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -27,6 +32,9 @@ public class User implements Serializable {
 	private String identificador; // Es unico y es el nombre de usuario
 	private String tipo;
 	private String password;
+	
+	@OneToMany(mappedBy = "agent")
+	private Set<Incidence> incidences = new HashSet<Incidence>();
 
 	public Long getId() {
 		return id;
@@ -84,14 +92,18 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Set<Incidence> getIncidences() {
+		return incidences;
+	}
+
+	public void setIncidences(Set<Incidence> incidences) {
+		this.incidences = incidences;
 	}
 
 	/**
 	 * Constructor
 	 */
-	User() {
+	Agent() {
 	}
 
 	/**
@@ -103,7 +115,7 @@ public class User implements Serializable {
 	 * @param identificador
 	 * @param tipo
 	 */
-	public User(String nombre, String location, String email, String identificador, String tipo) {
+	public Agent(String nombre, String location, String email, String identificador, String tipo) {
 		setNombre(nombre);
 		setLocation(obtenerLocalizacion(location));
 		setEmail(email);
@@ -128,7 +140,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Agent other = (Agent) obj;
 		if (identificador == null) {
 			if (other.identificador != null)
 				return false;
@@ -139,7 +151,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nombre=" + nombre + ", localizacion=" + location.toString() + ", email=" + email + ", identificador=" + identificador
+		return "Agent [id=" + id + ", nombre=" + nombre + ", localizacion=" + location.toString() + ", email=" + email + ", identificador=" + identificador
 				+ ", tipo=" + tipo + "]";
 	}
 
