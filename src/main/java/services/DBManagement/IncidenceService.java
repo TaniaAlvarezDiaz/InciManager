@@ -9,7 +9,7 @@ import model.Incidence;
 import repositories.IncidenceRepository;
 
 @Service
-public class IncidenceService implements GetIncidences{
+public class IncidenceService implements GetIncidences, SaveIncidence{
 
 	@Autowired
 	private IncidenceRepository incidenceRepository;
@@ -27,6 +27,11 @@ public class IncidenceService implements GetIncidences{
 	@Override
 	public List<Incidence> findByIncidentManagementStaff(String identifier) {
 		return incidenceRepository.findByIncidentManagementStaff(identifier);
+	}
+
+	@Override
+	public void saveIncidence(Incidence incidence) {
+		incidenceRepository.save(incidence);
 	}
 
 }
