@@ -11,6 +11,7 @@ public class SendIncidenceImpl implements SendIncidence {
 
 	private static final String topic = "Incidences";
 
+	@Override
 	public void sendIncidence(String jsonStringIncidence) {
 		kafkaProducer.send(topic, jsonStringIncidence);
 	}
