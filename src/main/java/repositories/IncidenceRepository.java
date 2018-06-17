@@ -25,7 +25,7 @@ public interface IncidenceRepository extends CrudRepository<Incidence, Long>{
 	 * @return
 	 */
 	@Query("SELECT i FROM Incidence i WHERE i.agent.identificador = ?1")
-	List<Incidence> findByAgent(String agentIdentifier);
+	public List<Incidence> findByAgent(String agentIdentifier);
 	
 	/**
 	 * Método que devuelve una lista con las incidencias que 
@@ -35,6 +35,6 @@ public interface IncidenceRepository extends CrudRepository<Incidence, Long>{
 	 * @return
 	 */
 	@Query("SELECT i FROM Incidence i WHERE i.incidentManagementStaff.identificador = ?1")
-	List<Incidence> findByIncidentManagementStaff(String identifier);
+	public List<Incidence> findByIncidentManagementStaff(String identifier);
 	
 }
