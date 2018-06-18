@@ -17,4 +17,9 @@ public class AgentService implements GetAgent {
 		return agentRepository.findByIdentificador(identifier);
 	}
 
+	@Override
+	public Agent find(String identificador, String password, String tipo) {
+		return agentRepository.find(identificador, password, tipo);
+	}
+
 }

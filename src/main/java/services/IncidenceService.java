@@ -15,7 +15,6 @@ import model.Agent;
 import model.Incidence;
 import model.Incidence.Estado;
 import model.Property;
-import reporter.ReportIncidence;
 import repositories.IncidenceRepository;
 
 @Service
@@ -23,9 +22,6 @@ public class IncidenceService implements GetIncidences, SaveIncidence{
 
 	@Autowired
 	private SendIncidence sendIncidence;
-	
-	@Autowired
-	private ReportIncidence reportIncidence;
 	
 	@Autowired
 	private IncidenceRepository incidenceRepository;
@@ -136,8 +132,6 @@ public class IncidenceService implements GetIncidences, SaveIncidence{
 			
 			return true;
 		}
-		// Si no se identifico al agente de la incidencia, se reporta el error
-		reportIncidence.reportIncidence(incidence);
 		return false;
 		
 	}
