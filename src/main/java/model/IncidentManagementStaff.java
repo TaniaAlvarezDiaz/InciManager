@@ -102,11 +102,12 @@ public class IncidentManagementStaff implements Serializable {
 	 * @param email
 	 * @param identificador
 	 */
-	public IncidentManagementStaff(String nombre, String email, String identificador) {
+	public IncidentManagementStaff(String nombre, String email, String identificador, String password) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.identificador = identificador;
+		this.password = password;
 	}
 
 	@Override

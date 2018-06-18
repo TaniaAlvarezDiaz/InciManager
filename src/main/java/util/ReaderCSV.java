@@ -5,12 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class ReaderCSV {
 
 	private Map<Integer, String> agents = new HashMap<Integer, String>();
 	private final static String AGENTSFILE = "src/main/resources/agents.csv";
-	
+
 	public Map<Integer, String> getAgents() {
 		return agents;
 	}
@@ -21,7 +22,7 @@ public class ReaderCSV {
 	public ReaderCSV() {
 		loadAgents();
 	}
-	
+
 	/**
 	 * Método para cargar los agentes del archivo csv
 	 */
@@ -48,11 +49,12 @@ public class ReaderCSV {
 			}
 		}
 	}
-	
+
 	/**
-	 * Método que devuelve el codigo del tipo de agente que se pasa
-	 * por parametro
-	 * @param kind	tipo de agente
+	 * Método que devuelve el codigo del tipo de agente que se pasa por parametro
+	 * 
+	 * @param kind
+	 *            tipo de agente
 	 * @return -1 si el tipo de agente no existe
 	 */
 	public int getKindCode(String kind) {
@@ -63,5 +65,14 @@ public class ReaderCSV {
 			}
 		}
 		return -1;
+	}
+
+	/**
+	 * Método que devuelve todos los tipos disponibles
+	 * 
+	 * @return
+	 */
+	public Set<String> getKinds() {
+		return (Set<String>) agents.values();
 	}
 }

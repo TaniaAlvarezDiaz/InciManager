@@ -15,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 /**
  * Clase que representa una incidencia
  * 
@@ -165,12 +164,10 @@ public class Incidence implements Serializable {
 	/**
 	 * Constructor
 	 * 
-	 * @param id
 	 * @param nombre
 	 * @param descripcion
 	 * @param estado
 	 * @param agent
-	 * @param localizacion
 	 * @param tags
 	 * @param properties
 	 * @param incidentManagementStaff
@@ -178,22 +175,45 @@ public class Incidence implements Serializable {
 	 * @param fechaCaducidad
 	 * @param peligrosa
 	 */
-	public Incidence(Long id, String nombre, String descripcion, Estado estado, Agent agent, Location localizacion,
-			Set<String> tags, Set<model.Property> properties, IncidentManagementStaff incidentManagementStaff,
-			String comments, String fechaCaducidad, boolean peligrosa) {
+	public Incidence(String nombre, String descripcion, Estado estado, Agent agent, Set<String> tags,
+			Set<model.Property> properties, IncidentManagementStaff incidentManagementStaff, String comments,
+			String fechaCaducidad, boolean peligrosa) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.estado = estado;
 		this.agent = agent;
-		this.localizacion = localizacion;
+		this.localizacion = agent.getLocation(); // Se obtiene del agente
 		this.tags = tags;
 		this.properties = properties;
 		this.incidentManagementStaff = incidentManagementStaff;
 		this.comments = comments;
 		this.fechaCaducidad = fechaCaducidad;
 		this.peligrosa = peligrosa;
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param nombre
+	 * @param descripcion
+	 * @param estado
+	 * @param agent
+	 * @param tags
+	 * @param properties
+	 * @param fechaCaducidad
+	 */
+	public Incidence(String nombre, String descripcion, Estado estado, Agent agent, Set<String> tags,
+			Set<model.Property> properties, String fechaCaducidad) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		this.agent = agent;
+		this.localizacion = agent.getLocation(); // Se obtiene del agente
+		this.tags = tags;
+		this.properties = properties;
+		this.fechaCaducidad = fechaCaducidad;
 	}
 
 	@Override
