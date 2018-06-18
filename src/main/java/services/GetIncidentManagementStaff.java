@@ -1,4 +1,4 @@
-package services.DBManagement;
+package services;
 
 import model.IncidentManagementStaff;
 
