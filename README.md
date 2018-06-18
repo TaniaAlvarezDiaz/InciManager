@@ -13,7 +13,7 @@ Para ejecutar el proyecto seguir los siguientes pasos:
 
 1. Ejecutar la base de datos, en este caso HSQLDB.
 
-2. Descargar [Apache Kafka] (https://kafka.apache.org/quickstart) y seguir los siguientes pasos, todos ellos desde la consola CMD.
+2. Descargar [Apache Kafka](https://kafka.apache.org/quickstart) y seguir los siguientes pasos, todos ellos desde la consola CMD.
    * Ir a la capeta donde está el zip de Kafka descomprimido.
    * Ejecutar Apache Zookeeper. Para ello ejecutar:
      * En Windows: bin\windows\zookeeper-server-start.bat config\zookeeper.properties
@@ -22,11 +22,11 @@ Para ejecutar el proyecto seguir los siguientes pasos:
      * En Windows: bin\windows\kafka-server-start.bat config/server.properties
      * En Mac: bin/kafka-server-start.sh config/server.properties
 
-3. Ejecutar [Agents] (https://github.com/TaniaAlvarezDiaz/Agents). Desde la carpeta Agents ejecutar: 
+3. Ejecutar [Agents](https://github.com/TaniaAlvarezDiaz/Agents). Desde la carpeta Agents ejecutar: 
    * mvn spring-boot:run
 
 4. Desde la carpeta InciManager ejecutar:
    * mvn spring-boot:run
 
 5. Desde un navegador acceder a:
-   * localhost:8090
+   * http://localhost:8090
