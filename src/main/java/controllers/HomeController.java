@@ -17,6 +17,13 @@ public class HomeController {
 	@Autowired
 	private AgentService agentService;
 	
+	@RequestMapping("/")
+	public String mostrarLogin(Model model) {
+		// Enviamos a la vista los tipos de agente, sacados del fichero csv
+		model.addAttribute("kinds", new ReaderCSV().getKinds());
+		return "login";
+	}
+	
 	@RequestMapping("/login")
 	public String login(Model model) {
 		// Enviamos a la vista los tipos de agente, sacados del fichero csv
