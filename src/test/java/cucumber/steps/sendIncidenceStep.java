@@ -2,7 +2,6 @@ package cucumber.steps;
 
 import static org.junit.Assert.assertTrue;
 
-import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -12,7 +11,7 @@ import cucumber.api.java.en.When;
 import main.InciManagerApplication;
 
 
-@ContextConfiguration(classes=InciManagerApplication.class, loader=SpringApplicationContextLoader.class)
+//@ContextConfiguration(classes=InciManagerApplication.class, loader=SpringApplicationContextLoader.class)
 @SpringBootTest
 public class sendIncidenceStep {
 

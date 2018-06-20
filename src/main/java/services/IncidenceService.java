@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -148,18 +149,22 @@ public class IncidenceService implements GetIncidences, SaveIncidence{
 	public String generarJSON(Incidence incidence) {
 		JSONObject json = new JSONObject();
 
-		json.put("identifier", incidence.getId());
-		json.put("login", incidence.getAgent().getIdentificador());
-		json.put("password", incidence.getAgent().getPassword());
-		json.put("kind", incidence.getAgent().getTipo());
-		json.put("name", incidence.getNombre());
-		json.put("description", incidence.getDescripcion());
-		json.put("location", incidence.getLocalizacion());
-		json.put("tags", incidence.getTags());
-		json.put("properties", incidence.getProperties());
-		json.put("status", incidence.getEstado());
-		json.put("incidentManagementStaffIdentifier", incidence.getIncidentManagementStaff().getIdentificador());
-		json.put("expiration", incidence.getFechaCaducidad());
+		try {
+			json.put("identifier", incidence.getId());
+			json.put("login", incidence.getAgent().getIdentificador());
+			json.put("password", incidence.getAgent().getPassword());
+			json.put("kind", incidence.getAgent().getTipo());
+			json.put("name", incidence.getNombre());
+			json.put("description", incidence.getDescripcion());
+			json.put("location", incidence.getLocalizacion());
+			json.put("tags", incidence.getTags());
+			json.put("properties", incidence.getProperties());
+			json.put("status", incidence.getEstado());
+			json.put("incidentManagementStaffIdentifier", incidence.getIncidentManagementStaff().getIdentificador());
+			json.put("expiration", incidence.getFechaCaducidad());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
 		return json.toString();
 	}

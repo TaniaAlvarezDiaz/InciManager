@@ -42,7 +42,7 @@ public class IncidenceController implements AddIncidence{
 		Incidence incidence = incidenceService.createIncidence(name, description, tags, properties, activeUser);
 		
 		if (incidenceService.enviadaIncidencia(incidence))
-			return "redirect:/index?enviadaCorrectamente=true";
+			return "redirect:/home?enviadaCorrectamente=true";
 		return "redirect:/managerError?mensajeError=Error al enviar la incidencia.";
 	}
 	
