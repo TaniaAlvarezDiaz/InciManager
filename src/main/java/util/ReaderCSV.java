@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -73,6 +74,9 @@ public class ReaderCSV {
 	 * @return
 	 */
 	public Set<String> getKinds() {
-		return (Set<String>) agents.values();
+		Set<String> res = new HashSet<String>();
+		for (String s : agents.values())
+			res.add(s);
+		return res;
 	}
 }

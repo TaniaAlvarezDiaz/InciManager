@@ -8,6 +8,8 @@ import java.util.Set;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import apacheKafka.SendIncidence;
@@ -18,6 +20,8 @@ import model.Property;
 import repositories.IncidenceRepository;
 
 @Service
+@EnableJpaRepositories(basePackages = {"repositories"})
+@EntityScan(basePackages = {"model"})
 public class IncidenceService implements GetIncidences, SaveIncidence{
 
 	@Autowired

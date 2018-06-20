@@ -19,27 +19,14 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String mostrarLogin(Model model) {
-		// Enviamos a la vista los tipos de agente, sacados del fichero csv
-		model.addAttribute("kinds", new ReaderCSV().getKinds());
 		return "login";
 	}
 	
 	@RequestMapping("/login")
 	public String login(Model model) {
-		// Enviamos a la vista los tipos de agente, sacados del fichero csv
-		model.addAttribute("kinds", new ReaderCSV().getKinds());
 		return "login";
 	}
-	
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam String username, @RequestParam String password, @RequestParam String kind) {
-    	Agent a = agentService.findByIdentificador(username);
-    	if (a == null)
-    		return "login";
-    	if (a.getPassword().equals(password) && a.getTipo().equals(kind))
-    			return "index";
-    	return "login";
-	}
+
 	
 	@RequestMapping("/home")
 	public String index(Model model, @RequestParam(required = false) boolean enviadaCorrectamente) {

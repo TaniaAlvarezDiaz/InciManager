@@ -21,6 +21,7 @@ public class Agent implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,6 +33,7 @@ public class Agent implements Serializable {
 	private String identificador; // Es unico y es el nombre de usuario
 	private String tipo;
 	private String password;
+
 	
 	@OneToMany(mappedBy = "agent")
 	private Set<Incidence> incidences = new HashSet<Incidence>();
@@ -99,6 +101,7 @@ public class Agent implements Serializable {
 	public void setIncidences(Set<Incidence> incidences) {
 		this.incidences = incidences;
 	}
+	
 
 	/**
 	 * Constructor
@@ -191,5 +194,4 @@ public class Agent implements Serializable {
 		double longitud = Double.parseDouble(trozos[1]);
 		return new Location(latitud, longitud);
 	}
-
 }
