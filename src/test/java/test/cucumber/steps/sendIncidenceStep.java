@@ -45,6 +45,13 @@ public class SendIncidenceStep {
 
 	@Cuando("^rellene el formulario y haga click en el boton \"Enviar\"$")
 	public void el_agente_rellena_formulario_y_pulsa_enviar() throws Throwable {
+		//Hay que iniciar sesion, lo hacemos con pedro
+		driver.get("http://localhost:8091/login");
+		driver.findElement(By.name("username")).sendKeys("09847581T");					
+	    driver.findElement(By.name("password")).sendKeys("123456789");
+	    driver.findElement(By.name("login")).click();
+	    
+		//Vamos al formulario para enviar incidencia
 		driver.get("http://localhost:8091/incidence/send");
 		driver.findElement(By.name("name")).sendKeys(nombre);					
 	    driver.findElement(By.name("description")).sendKeys(descripcion);
