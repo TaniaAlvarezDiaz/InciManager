@@ -244,8 +244,8 @@ public class Incidence implements Serializable {
 	@Override
 	public String toString() {
 		return "Incidence [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", estado=" + estado
-				+ ", agent=" + agent.toString() + ", localizacion=" + localizacion.toString() + ", tags=" + tags
-				+ ", properties=" + properties + ", incidentManagementStaff=" + incidentManagementStaff.toString()
+				+ ", agent=" + agent.toString() + ", localizacion=" + localizacion.toString() + ", tags=" + tags.toString()
+				+ ", properties=" + properties.toString() + ", incidentManagementStaff=" + incidentManagementStaff.toString()
 				+ ", comments=" + comments + ", fechaCaducidad=" + fechaCaducidad + ", peligrosa=" + peligrosa + "]";
 	}
 
