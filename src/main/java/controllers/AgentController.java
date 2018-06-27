@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import services.IncidenceService;
 
 @Controller
-public class AgentController {
+public class AgentController implements SeeIncidencesSent{
 	
 	@Autowired
 	private IncidenceService incidenceService;
